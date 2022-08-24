@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <suite name="Suite"  parallel="classes"  thread-count = "2" >
-
+	
+	<listeners>
+	    <listener class-name = "BaseClass.TestngListners"/>
+	</listeners>
+	
   <test name="Test">
+  
   <parameter name = 'browser' value ='chrome'/>
+  
     <classes>
       <class name="com.qa.LoginTest"/>
-      <class name="com.qa.ItemBuyTest"/>
-      
     </classes>
+    
   </test> <!-- Test -->
 </suite> <!-- Suite -->

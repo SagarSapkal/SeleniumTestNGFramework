@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Suite]">
-  <test thread-count="5" parallel="methods" name="Test(failed)">
+<suite thread-count="2" parallel="classes" name="Failed suite [Suite]">
+  <test thread-count="2" parallel="classes" name="Test(failed)">
     <parameter name="browser" value="chrome"/>
     <classes>
       <class name="com.qa.LoginTest">
         <methods>
           <include name="beforeMethod"/>
-          <include name="loginTest"/>
+          <include name="loginTest" invocation-numbers="1"/>
           <include name="afterMethod"/>
-          <include name="lockedoutUserTest"/>
         </methods>
       </class> <!-- com.qa.LoginTest -->
     </classes>

@@ -16,8 +16,6 @@ public class WebDriverFactory {
 	public WebDriverFactory(String browser) {
 		this.browser = browser.toLowerCase();
 	}
-	
-	
 
 	public WebDriver Createdriver() {
 		

@@ -1,35 +1,52 @@
 package com.qa;
 
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
-import java.time.Duration;
-
+import java.io.IOException;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.edge.EdgeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.Parameters;
+import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import BaseClass.BaseClass;
-import io.github.bonigarcia.wdm.WebDriverManager;
+import BaseClass.ExcelUtility;
 
 public class LoginTest extends BaseClass {
 
-	
 
-  @Test(enabled = true)
-  public void loginTest() throws InterruptedException {
-	  System.out.println("successful login test");
-	  
+  @DataProvider(name ="loginTestData")
+  public String[][] loginTestData() throws IOException {
+	  String path = "C:\\Users\\Sagar Sapkal\\eclipse-workspace\\2022_TestNGFramework\\src\\test\\resources\\DataProvider.xlsx";
+	ExcelUtility util = new ExcelUtility(path );
+	int cellCount= util.getcellCount("sheet1", 1);
+	int rowCount = util.getRowCount("sheet1");
+	
+	String loginData[][] = new String[rowCount][cellCount];
+	
+	for(int i=1; i<=rowCount; i++) {
+		
+		for(int j=0; j<cellCount; j++) {
+			
+			loginData[i-1][j] =  util.getcellData("sheet1",i,j);
+			//System.out.println(loginData[i-1][j]+" ");
+			
+		}
+	}
+	return loginData;
+  }
+
+  @Test(dataProvider= "loginTestData")
+  public void loginTest(String user, String pwd)throws InterruptedException {
 	  driver.get("https://www.saucedemo.com/");
 	 
-	  driver.findElement(By.xpath("//input[@id='user-name']")).sendKeys("standard_user");
-	  driver.findElement(By.xpath("//input[@id='password']")).sendKeys("secret_sauce");
+	  
+	  if(user.equalsIgnoreCase("standard_user") ) {
+	 
+	  driver.findElement(By.xpath("//input[@id='user-name']")).sendKeys(user);
+	  driver.findElement(By.xpath("//input[@id='password']")).sendKeys(pwd);
 	  driver.findElement(By.xpath("//input[@id='login-button']")).click();
+	  
 	  
 	  driver.findElement(By.xpath("//div[normalize-space()='Sauce Labs Backpack']")).click();
 	  driver.findElement(By.xpath("//button[@id='add-to-cart-sauce-labs-backpack']")).click();
@@ -46,22 +63,22 @@ public class LoginTest extends BaseClass {
 	  driver.findElement(By.xpath("//button[@id='finish']")).click();
 	  driver.findElement(By.xpath("//button[@id='back-to-products']")).click();	
 	 
-  }
-
-  @Test(enabled = true)
-  public void lockedoutUserTest() throws InterruptedException {
-	
-	  System.out.println("failed login test");
-	  driver.get("https://www.saucedemo.com/");
-	 
-	  driver.findElement(By.xpath("//input[@id='user-name']")).sendKeys("locked_out_user");
-	  driver.findElement(By.xpath("//input[@id='password']")).sendKeys("secret_sauce");
+	  }
+	  else if (user.equalsIgnoreCase("locked_out_user")) {
+	  driver.findElement(By.xpath("//input[@id='user-name']")).sendKeys(user);
+	  Thread.sleep(3000);
+	  driver.findElement(By.xpath("//input[@id='password']")).sendKeys(pwd);
 	  driver.findElement(By.xpath("//input[@id='login-button']")).click();
-	  
 	  String LockedoutError = driver.findElement(By.xpath("//h3[@data-test='error']")).getText();
 	  assertEquals(LockedoutError,"Epic sadface: Sorry, this user has been locked out.");
-  	 
+	  }
+	  else {
+		  Assert.assertTrue(true);
+		  
+	  }
+	  
   }
+
 
 
 
