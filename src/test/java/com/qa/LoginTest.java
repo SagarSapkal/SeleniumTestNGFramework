@@ -11,6 +11,7 @@ import org.testng.annotations.Test;
 
 import BaseClass.BaseClass;
 import BaseClass.ExcelUtility;
+import Pages.LoginPage;
 
 public class LoginTest extends BaseClass {
 
@@ -43,9 +44,8 @@ public class LoginTest extends BaseClass {
 	  
 	  if(user.equalsIgnoreCase("standard_user") ) {
 	 
-	  driver.findElement(By.xpath("//input[@id='user-name']")).sendKeys(user);
-	  driver.findElement(By.xpath("//input[@id='password']")).sendKeys(pwd);
-	  driver.findElement(By.xpath("//input[@id='login-button']")).click();
+	  LoginPage loginpage = new LoginPage();
+	  loginpage.enterCredentials(user, pwd);
 	  
 	  
 	  driver.findElement(By.xpath("//div[normalize-space()='Sauce Labs Backpack']")).click();
