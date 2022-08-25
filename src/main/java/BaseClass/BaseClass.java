@@ -16,7 +16,7 @@ public class BaseClass {
 		
 	String bw = browser;
 	WebDriverFactory factory = new WebDriverFactory(bw);
-	driver = factory.Createdriver();
+	this.driver = factory.Createdriver();
 	
 	driver.manage().deleteAllCookies();
 	driver.manage().window().maximize();
