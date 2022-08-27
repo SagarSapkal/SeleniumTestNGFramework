@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+<testng-results skipped="0" failed="0" ignored="0" total="2" passed="2">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2022-08-25T16:26:29 IST" name="Suite" finished-at="2022-08-25T16:26:53 IST" duration-ms="24315">
+  <suite name="Suite" duration-ms="17695" started-at="2022-08-26T11:47:42 IST" finished-at="2022-08-26T11:47:59 IST">
     <groups>
     </groups>
-    <test started-at="2022-08-25T16:26:29 IST" name="Test" finished-at="2022-08-25T16:26:53 IST" duration-ms="24315">
+    <test name="Test" duration-ms="17695" started-at="2022-08-26T11:47:42 IST" finished-at="2022-08-26T11:47:59 IST">
       <class name="com.qa.LoginTest">
-        <test-method is-config="true" signature="beforeMethod(java.lang.String)[pri:0, instance:com.qa.LoginTest@740cae06]" started-at="2022-08-25T16:26:29 IST" name="beforeMethod" finished-at="2022-08-25T16:26:34 IST" duration-ms="4930" status="PASS">
+        <test-method status="PASS" signature="beforeMethod(java.lang.String)[pri:0, instance:com.qa.LoginTest@4e718207]" name="beforeMethod" is-config="true" duration-ms="5594" started-at="2022-08-26T11:47:43 IST" finished-at="2022-08-26T11:47:48 IST">
           <params>
             <param index="0">
               <value>
@@ -18,7 +18,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="loginTest(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.qa.LoginTest@740cae06]" started-at="2022-08-25T16:26:34 IST" name="loginTest" data-provider="loginTestData" finished-at="2022-08-25T16:26:46 IST" duration-ms="12074" status="PASS">
+        <test-method status="PASS" signature="loginTest(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.qa.LoginTest@4e718207]" name="loginTest" duration-ms="2834" started-at="2022-08-26T11:47:48 IST" data-provider="loginTestData" finished-at="2022-08-26T11:47:51 IST">
           <params>
             <param index="0">
               <value>
@@ -54,11 +54,11 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginTest -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.qa.LoginTest@740cae06]" started-at="2022-08-25T16:26:46 IST" name="afterMethod" finished-at="2022-08-25T16:26:47 IST" duration-ms="554" status="PASS">
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.qa.LoginTest@4e718207]" name="afterMethod" is-config="true" duration-ms="946" started-at="2022-08-26T11:47:51 IST" finished-at="2022-08-26T11:47:52 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->
-        <test-method is-config="true" signature="beforeMethod(java.lang.String)[pri:0, instance:com.qa.LoginTest@740cae06]" started-at="2022-08-25T16:26:47 IST" name="beforeMethod" finished-at="2022-08-25T16:26:50 IST" duration-ms="2957" status="PASS">
+        <test-method status="PASS" signature="beforeMethod(java.lang.String)[pri:0, instance:com.qa.LoginTest@4e718207]" name="beforeMethod" is-config="true" duration-ms="5001" started-at="2022-08-26T11:47:52 IST" finished-at="2022-08-26T11:47:57 IST">
           <params>
             <param index="0">
               <value>
@@ -69,7 +69,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeMethod -->
-        <test-method signature="loginTest(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.qa.LoginTest@740cae06]" started-at="2022-08-25T16:26:50 IST" name="loginTest" data-provider="loginTestData" finished-at="2022-08-25T16:26:52 IST" duration-ms="2438" status="PASS">
+        <test-method status="PASS" signature="loginTest(java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.qa.LoginTest@4e718207]" name="loginTest" duration-ms="1599" started-at="2022-08-26T11:47:57 IST" data-provider="loginTestData" finished-at="2022-08-26T11:47:59 IST">
           <params>
             <param index="0">
               <value>
@@ -105,7 +105,7 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginTest -->
-        <test-method is-config="true" signature="afterMethod()[pri:0, instance:com.qa.LoginTest@740cae06]" started-at="2022-08-25T16:26:52 IST" name="afterMethod" finished-at="2022-08-25T16:26:53 IST" duration-ms="392" status="PASS">
+        <test-method status="PASS" signature="afterMethod()[pri:0, instance:com.qa.LoginTest@4e718207]" name="afterMethod" is-config="true" duration-ms="759" started-at="2022-08-26T11:47:59 IST" finished-at="2022-08-26T11:47:59 IST">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterMethod -->

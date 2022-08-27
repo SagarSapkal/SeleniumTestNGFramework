@@ -15,9 +15,6 @@ import Pages.ItemsPage;
 import Pages.LoginPage;
 
 public class LoginTest extends BaseClass {
-	
-	
-
 
   @DataProvider(name ="loginTestData")
   public String[][] loginTestData() throws IOException {
@@ -45,28 +42,18 @@ public class LoginTest extends BaseClass {
 	 
 	  LoginPage loginpage = new LoginPage(driver);
 	  ItemsPage itemPage = new ItemsPage(driver);
+	  CheckoutPage checkoutPage = new CheckoutPage(driver);
 	  
 	  if(user.equalsIgnoreCase("standard_user") ) {
-		  Thread.sleep(3000);
-		  System.out.println(user);
-	  
+ 
 	  loginpage.enterCredentials(user, pwd);
-	  Thread.sleep(3000);
-	  
-	  
 	  itemPage.selectItem();
 	  itemPage.checkoutItem();
-	  
-	  Thread.sleep(3000);
-	  CheckoutPage checkoutPage = new CheckoutPage(driver); 
-	  checkoutPage.enterUserInformation(firstName, lastName, pinCode).backToProducts();
-	 
+	  checkoutPage.enterUserInformation(firstName, lastName, pinCode).backToProducts(); 
 	  }
 	  else if (user.equalsIgnoreCase("locked_out_user")) {
 		  loginpage.enterCredentials(user, pwd);
 		  loginpage.lockedUser(expectedError);
-		  
-
 	  }
 	  else {
 		  Assert.assertTrue(true);
