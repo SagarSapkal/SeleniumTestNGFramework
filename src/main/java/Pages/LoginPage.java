@@ -7,9 +7,9 @@ import org.openqa.selenium.WebDriver;
 
 import BaseClass.BaseClass;
 
-public class LoginPage extends BaseClass{
-	protected WebDriver driver;
-	protected String LockedoutError;
+public class LoginPage{
+	private WebDriver driver;
+	private String LockedoutError;
 	
 	public LoginPage(WebDriver driver) {
 		this.driver = driver;

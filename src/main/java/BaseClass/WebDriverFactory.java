@@ -20,8 +20,8 @@ public class WebDriverFactory {
 	public WebDriver Createdriver() {
 		
 		  String bw = browser.toLowerCase();
-		  System.out.println(bw);
-		  System.out.println("login Test for web Application");
+		  
+		  
 		  switch(bw){
 			  
 		case "chrome":

@@ -1,39 +1,57 @@
 package BaseClass;
 
+import org.testng.IReporter;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
 
-public class TestngListners implements ITestListener{
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
+import com.aventstack.extentreports.Status;
+import com.aventstack.extentreports.reporter.ExtentSparkReporter;
+
+public class TestngListners implements ITestListener,IReporter{
 	
-
-
+	ExtentReports extent = ExtentReportNG.extentReport();
+	
+	private ExtentTest test ;
+	
+	ThreadLocal<ExtentTest> extentTest =new ThreadLocal<ExtentTest>();
+	
+	
+	
 	public void onStart(ITestContext context) {	
-		System.out.println("onStart method started");
+		
 	}
 	
 	public void onFinish(ITestContext context) {
-		System.out.println("onFinish method started");
+		extent.flush();
 	}
 	
 	public void onTestStart(ITestResult result) {
-		System.out.println("New Test Started" +result.getName());
+		test = extent.createTest(result.getMethod().getMethodName());
+		extentTest.set(test);
+		
+		
 	}
 	
 	public void onTestSuccess(ITestResult result) {
-		System.out.println("onTestSuccess Method" +result.getName());
+		extentTest.get().pass("Successfully passed");
 	}
 
 	public void onTestFailure(ITestResult result) {
-		System.out.println("onTestFailure Method" +result.getName());
+		extentTest.get().fail(result.getThrowable());
+		
 	}
 
 	public void onTestSkipped(ITestResult result) {
-		System.out.println("onTestSkipped Method" +result.getName());
+		extentTest.get().skip(result.getThrowable());
 	}
 
 	public void onTestFailedButWithinSuccessPercentage(ITestResult result) {
-		System.out.println("onTestFailedButWithinSuccessPercentage" +result.getName());
+		extentTest.get().fail(result.getThrowable());
+		extentTest.get().log(Status.FAIL, "onTestFailedButWithinSuccessPercentage");
+		
 	}
 	
 	

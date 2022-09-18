@@ -5,9 +5,9 @@ import org.openqa.selenium.WebDriver;
 
 import BaseClass.BaseClass;
 
-public class CheckoutPage extends BaseClass {
+public class CheckoutPage {
 	
-	protected WebDriver driver;
+	private WebDriver driver;
 	
 	
 	public CheckoutPage(WebDriver driver) {

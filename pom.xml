@@ -78,6 +78,15 @@
     <artifactId>fillo</artifactId>
     <version>1.18</version>
 </dependency>
+
+<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
+<dependency>
+    <groupId>com.aventstack</groupId>
+    <artifactId>extentreports</artifactId>
+    <version>5.0.5</version>
+</dependency>
+ 	 	
+
  </dependencies>
 
 </project>

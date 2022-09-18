@@ -14,6 +14,8 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.ExtentTest;
+
 import BaseClass.BaseClass;
 import BaseClass.ExcelUtility;
 import Pages.CheckoutPage;
@@ -26,7 +28,7 @@ public class ItemBuyTest extends BaseClass {
 	
 
 	  @DataProvider(name ="ItemBuyTest")
-	  public String[][] loginTestData() throws IOException {
+	  public String[][] itemBuyTest() throws IOException {
 		  
 		String path = "C:\\Users\\Sagar Sapkal\\eclipse-workspace\\2022_TestNGFramework\\src\\test\\resources\\DataProvider.xlsx";
 		ExcelUtility util = new ExcelUtility(path );
@@ -46,7 +48,7 @@ public class ItemBuyTest extends BaseClass {
 	  }
 
 	  @Test(dataProvider= "ItemBuyTest")
-  public void loginTest(String user, String pwd,String firstName , String lastName, String pinCode,String expectedError) throws InterruptedException {
+  public void itemBuyTest(String user, String pwd,String firstName , String lastName, String pinCode,String expectedError) throws InterruptedException {
 	
 	  System.out.println("item buy test");
 	  driver.get("https://www.saucedemo.com/");

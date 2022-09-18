@@ -6,6 +6,8 @@ import org.openqa.selenium.By;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.aventstack.extentreports.ExtentTest;
+
 import BaseClass.BaseClass;
 import BaseClass.ExcelUtility;
 import Pages.CheckoutPage;
@@ -37,9 +39,10 @@ public class CancelOrderTest extends BaseClass {
 	  }
 
 	  @Test(dataProvider= "cancelOrderTest")
-  public void loginTest(String user, String pwd,String firstName , String lastName, String pinCode,String expectedError) throws InterruptedException {
+  public void CancelOrderTesting(String user, String pwd,String firstName , String lastName, String pinCode,String expectedError) throws InterruptedException {
 	
-	  
+	
+		  System.out.println("cancelOrderTest");
 	  driver.get("https://www.saucedemo.com/");
 	 
 	  LoginPage loginpage = new LoginPage(driver);

@@ -5,9 +5,9 @@ import org.openqa.selenium.WebDriver;
 
 import BaseClass.BaseClass;
 
-public class ItemsPage extends BaseClass{
+public class ItemsPage{
 	
-	protected WebDriver driver;
+	private WebDriver driver;
 	
 	
 	public ItemsPage(WebDriver driver) {

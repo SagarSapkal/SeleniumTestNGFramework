@@ -1,40 +1,50 @@
 package BaseClass;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
-public class test {
+import org.apache.poi.ss.usermodel.DataFormatter;
+import org.apache.poi.xssf.usermodel.XSSFCell;
+import org.apache.poi.xssf.usermodel.XSSFRow;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.openxmlformats.schemas.spreadsheetml.x2006.main.impl.WorkbookDocumentImpl;
+
+// Online Java Compiler
+// Use this editor to write, compile and run your Java code online
+
+
+class test {
+    
+  
+    public static void main(String args[]) throws IOException{
+       
+    	FileInputStream fil = new FileInputStream("C:\\\\Users\\\\Sagar Sapkal\\\\eclipse-workspace\\\\2022_TestNGFramework\\\\src\\\\test\\\\resources\\\\DataProvider.xlsx");
+    	
+    	XSSFWorkbook workbook = new XSSFWorkbook(fil);
+    	XSSFSheet sheet = workbook.getSheet("Sheet1");
+    	XSSFRow row= sheet.getRow(0);
+    	
+    	XSSFCell cell = row.createCell(0);
+    	cell.setCellValue("test");
+    	
+    	FileOutputStream fo =new FileOutputStream("C:\\\\\\\\Users\\\\\\\\Sagar Sapkal\\\\\\\\eclipse-workspace\\\\\\\\2022_TestNGFramework\\\\\\\\src\\\\\\\\test\\\\\\\\resources\\\\\\\\DataProvider.xlsx");
+		workbook.write(fo);
+    	
+		/*
+		 * DataFormatter formatter = new DataFormatter();
+		 * 
+		 * String cellData = formatter.formatCellValue(cell);
+		 * System.out.println(cellData);
+		 */
+        
+        
+        
+        
+    }
+
 	
-	  public static String[][] loginTestData() throws IOException {
-		  String path = "C:\\Users\\Sagar Sapkal\\eclipse-workspace\\2022_TestNGFramework\\src\\test\\resources\\DataProvider.xlsx";
-		ExcelUtility util = new ExcelUtility(path );
-		int cellCount= util.getcellCount("sheet1", 1);
-		int rowCount = util.getRowCount("sheet1");
-		
-		String loginData[][] = new String[rowCount][cellCount];
-		
-		for(int i=1; i<rowCount; i++) {
-			
-			for(int j=0; j<cellCount; j++) {
-				
-				loginData[i-1][j] =  util.getcellData("sheet1",i,j);
-				System.out.println(loginData[i-1][j]+" ");
-				
-			}
-		}
-		return loginData;
-
-		 
-	  }
-
-	public static void main(String[] args) throws IOException {
-		// TODO Auto-generated method stub
-		System.out.println(System.getProperty("user.dir"));
-		
-		loginTestData();
-
-		
-		
-		
-	}
-
 }

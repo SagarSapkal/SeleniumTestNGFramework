@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<suite name="Suite"  parallel="classes"  thread-count = "2" >
+
+<suite name="Suite"  parallel="classes"  thread-count = "3" >
 	
-	<listeners>
+<listeners>
 	    <listener class-name = "BaseClass.TestngListners"/>
 	</listeners>
 	
@@ -11,6 +12,8 @@
   
     <classes>
       <class name="com.qa.LoginTest"/>
+      <class name="com.qa.ItemBuyTest"/>
+      <class name="com.qa.CancelOrderTest"/>
     </classes>
     
   </test> <!-- Test -->
